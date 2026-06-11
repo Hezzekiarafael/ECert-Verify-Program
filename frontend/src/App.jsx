@@ -65,8 +65,9 @@ const App = () => {
     const fetchHistory = async () => {
       try {
         const response = await axios.get(`${API_BASE_URL}/history/`);
+        const totalItems = response.data.data.length;
         const fetchedHistory = response.data.data.map((item, idx) => ({
-          id: idx + 1,
+          id: totalItems - idx,
           file: item.file_name,
           bit_similarity: item.bit_similarity,
           avalanche: item.avalanche_effect,
