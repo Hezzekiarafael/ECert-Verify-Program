@@ -354,6 +354,7 @@ body {
   padding: 40px;
   width: 100%;
   max-width: 1200px;
+  min-width: 0;
 }
 
 .content-header {
@@ -409,6 +410,8 @@ body {
   border: 1px solid var(--card-border);
   color: #a5b4fc;
   max-height: 100px;
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .key-code.private {
