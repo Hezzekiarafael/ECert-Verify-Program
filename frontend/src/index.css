@@ -755,6 +755,9 @@ body {
   justify-content: space-between;
   border-bottom: 1px solid var(--card-border);
   border-radius: 0;
+  background: rgba(5, 7, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .mobile-overlay {
