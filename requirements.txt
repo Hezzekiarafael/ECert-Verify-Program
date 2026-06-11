@@ -1,4 +1,4 @@
-django>=6.0,<7.0
+django>=5.0,<7.0
 djangorestframework>=3.17
 cryptography>=47.0
 pdf2image>=1.17.0
