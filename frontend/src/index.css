@@ -74,6 +74,8 @@ body {
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--card-border);
   border-radius: 16px;
+  min-width: 0;
+  width: 100%;
 }
 
 .mt-4 { margin-top: 4px; }
@@ -226,6 +228,8 @@ body {
 .view-layout {
   display: grid;
   gap: 32px;
+  min-width: 0;
+  width: 100%;
 }
 
 .p-32 {
@@ -548,6 +552,8 @@ body {
   font-size: 0.75rem;
   color: #cbd5e1;
   border: 1px solid var(--card-border);
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .data-value.scroll {
