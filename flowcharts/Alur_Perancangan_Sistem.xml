@@ -1,0 +1,273 @@
+<mxfile host="app.diagrams.net" modified="2026-05-25T00:00:00.000Z" agent="E-Certificate Verification System" version="21.0.0" type="device">
+  <diagram id="ecert-alur-sistem-akurat" name="Alur Perancangan Sistem (Akurat)">
+    <mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ============================================================ -->
+        <!-- SECTION DIVIDERS                                              -->
+        <!-- ============================================================ -->
+        <mxCell id="div_a" value="" style="line;strokeColor=#333333;strokeWidth=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="150" width="800" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="div_b" value="" style="line;strokeColor=#333333;strokeWidth=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="425" width="800" height="10" as="geometry" />
+        </mxCell>
+
+        <!-- SECTION LABELS -->
+        <mxCell id="lbl_a" value="TAHAP A — KEY GENERATION" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=10;fontColor=#1F3864;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_b" value="TAHAP B — SIGNING (PENANDATANGANAN)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=10;fontColor=#1F3864;" vertex="1" parent="1">
+          <mxGeometry x="10" y="170" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_c" value="TAHAP C — VERIFICATION (VERIFIKASI)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=10;fontColor=#1F3864;" vertex="1" parent="1">
+          <mxGeometry x="10" y="440" width="330" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- TAHAP A: KEY GENERATION                                       -->
+        <!-- ============================================================ -->
+        <mxCell id="mulai" value="MULAI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="65" width="90" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="gen_acak" value="Generator Bilangan Acak&#xa;Kriptografi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F3864;fontColor=#ffffff;strokeColor=none;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="165" y="58" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rsa_keygen" value="RSA-2048 Key Generation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F3864;fontColor=#ffffff;strokeColor=none;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="58" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="priv_pem" value="Private Key (PEM)&#xa;Disimpan aman oleh penerbit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="555" y="38" width="165" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pub_pem" value="Public Key (PEM)&#xa;Dibagikan untuk verifikasi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="555" y="115" width="165" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="mulai" target="gen_acak" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="gen_acak" target="rsa_keygen" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" edge="1" source="rsa_keygen" target="priv_pem" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" edge="1" source="rsa_keygen" target="pub_pem" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- ============================================================ -->
+        <!-- TAHAP B: SIGNING                                              -->
+        <!-- ============================================================ -->
+        <mxCell id="cert_b" value="File Sertifikat Asli&#xa;(Format PDF / Gambar)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F3864;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="10" y="200" width="135" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="norm_b" value="Normalisasi Citra&#xa;Grayscale, 300 DPI&#xa;(Standardisasi Ukuran)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E5C1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="175" y="200" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="citra_b" value="Citra Digital&#xa;Terstandarisasi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="335" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sha_b" value="Fungsi Hash&#xa;SHA-256" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E5C1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="485" y="200" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="msg_digest" value="Original Hash&#xa;SHA-256 (256-bit)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="615" y="200" width="130" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="rsa_sign" value="RSA-2048 PSS Signing&#xa;(Algoritma dengan Salt Acak)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E5C1E;fontColor=#ffffff;strokeColor=none;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="320" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="priv_key_b" value="Private Key" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="630" y="330" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="digsig_b" value="Digital Signature&#xa;(Base64 Format)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="260" y="320" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="shannon" value="Shannon Entropy&#xa;Analysis&#xa;(Kualitas Randomness)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="150" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="cert_b" target="norm_b" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="norm_b" target="citra_b" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="citra_b" target="sha_b" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="sha_b" target="msg_digest" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="msg_digest" target="rsa_sign" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="290" />
+              <mxPoint x="515" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="priv_key_b" target="rsa_sign" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="rsa_sign" target="digsig_b" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="digsig_b" target="shannon" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+
+        <!-- ============================================================ -->
+        <!-- TAHAP C: VERIFICATION                                         -->
+        <!-- ============================================================ -->
+        <mxCell id="cert_c" value="Sertifikat Uji&#xa;(Akan Diverifikasi)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F3864;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="10" y="465" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="norm_c" value="Normalisasi Citra&#xa;(Proses Identik)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E5C1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="170" y="465" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sha_c" value="Fungsi Hash&#xa;SHA-256" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E5C1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="330" y="465" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hash_baru" value="Current Hash&#xa;(Hash Baru)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="470" y="465" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="orig_hash" value="Original Hash&#xa;(Input Opsional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F3864;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="640" y="465" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- INPUT BAWAH -->
+        <mxCell id="digsig_c" value="Digital Signature&#xa;(Input Base64)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F3864;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="10" y="560" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pub_key_c" value="Public Key&#xa;(Input PEM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F3864;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="10" y="640" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- CORE VERIFY -->
+        <mxCell id="rsa_verify" value="RSA-2048 PSS Verification&#xa;(Matematika Validasi)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E5C1E;fontColor=#ffffff;strokeColor=none;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="580" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="compare" value="Verifikasi&#xa;Valid?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#7B1C1C;fontColor=#ffffff;strokeColor=none;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="562" width="110" height="95" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="valid" value="AUTHENTIC&#xa;(Sertifikat Valid)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E5C1E;fontColor=#ffffff;strokeColor=none;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="545" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="invalid" value="INVALID&#xa;(Dipalsukan)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B1C1C;fontColor=#ffffff;strokeColor=none;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="625" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- AVALANCHE EFFECT -->
+        <mxCell id="avalanche" value="Avalanche Effect Analysis&#xa;(Kalkulasi % Bit Berubah)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E4D1E;fontColor=#ffffff;strokeColor=none;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="540" y="730" width="150" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="selesai" value="SELESAI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="655" y="830" width="100" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows TAHAP C -->
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="cert_c" target="norm_c" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="norm_c" target="sha_c" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="sha_c" target="hash_baru" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Inputs to RSA Verify -->
+        <mxCell id="e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" edge="1" source="digsig_c" target="rsa_verify" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.7;" edge="1" source="pub_key_c" target="rsa_verify" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="hash_baru" target="rsa_verify" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="540" />
+              <mxPoint x="355" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- RSA Verify to Compare -->
+        <mxCell id="e19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="rsa_verify" target="compare" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Compare to Valid / Invalid -->
+        <mxCell id="e20" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontStyle=1;fontSize=9;" edge="1" source="compare" target="valid" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e21" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontStyle=1;fontSize=9;" edge="1" source="compare" target="invalid" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Avalanche Effect Inputs -->
+        <mxCell id="e22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0.25;entryY=0;strokeColor=#404040;" edge="1" source="hash_baru" target="avalanche" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="540" />
+              <mxPoint x="450" y="540" />
+              <mxPoint x="450" y="700" />
+              <mxPoint x="578" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0.75;entryY=0;strokeColor=#404040;" edge="1" source="orig_hash" target="avalanche" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="705" y="700" />
+              <mxPoint x="652" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Selesai routing -->
+        <mxCell id="e24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="valid" target="selesai" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="570" />
+              <mxPoint x="800" y="852" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="invalid" target="selesai" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="650" />
+              <mxPoint x="780" y="830" />
+              <mxPoint x="705" y="830" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="avalanche" target="selesai" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="615" y="852" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- LEGEND                                                         -->
+        <!-- ============================================================ -->
+        <mxCell id="legend_bg" value="" style="rounded=1;fillColor=#F5F5F5;strokeColor=#CCCCCC;" vertex="1" parent="1">
+          <mxGeometry x="10" y="740" width="145" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_title" value="Keterangan:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="18" y="745" width="90" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="" style="rounded=1;fillColor=#1F3864;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="18" y="767" width="22" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1t" value="Input / Data" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="46" y="764" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="" style="rounded=1;fillColor=#1E5C1E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="18" y="786" width="22" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2t" value="Proses Algoritma" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="46" y="783" width="85" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="" style="rounded=1;fillColor=#1E4D1E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="18" y="805" width="22" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3t" value="Output / Ekstraksi" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="46" y="802" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="" style="rhombus;fillColor=#7B1C1C;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="18" y="821" width="22" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4t" value="Keputusan" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="46" y="820" width="80" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
