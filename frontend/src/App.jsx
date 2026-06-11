@@ -98,18 +98,10 @@ const App = () => {
           </div>
           <span className="logo-text" style={{ fontSize: '1.1rem' }}>ECert Verify</span>
         </div>
-        <button className="icon-btn" onClick={() => setIsMobileMenuOpen(true)}>
-          <Menu size={24} color="#ffffff" />
-        </button>
       </div>
 
-      {/* Mobile Overlay */}
-      {isMobileMenuOpen && (
-        <div className="mobile-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
-      )}
-
       {/* Sidebar Navigation */}
-      <nav className={`sidebar glass ${isMobileMenuOpen ? 'open' : ''}`}>
+      <nav className="sidebar glass">
         <div className="sidebar-header-mobile">
           <div className="logo-section" style={{ paddingBottom: 0, borderBottom: 'none', marginBottom: 0 }}>
             <div className="logo-icon">
@@ -134,19 +126,19 @@ const App = () => {
             icon={<Key size={20} />} 
             label="Key Generator" 
             active={activeTab === 'keygen'} 
-            onClick={() => { setActiveTab('keygen'); setIsMobileMenuOpen(false); }} 
+            onClick={() => setActiveTab('keygen')} 
           />
           <NavItem 
             icon={<FileSignature size={20} />} 
             label="Sign Certificate" 
             active={activeTab === 'signer'} 
-            onClick={() => { setActiveTab('signer'); setIsMobileMenuOpen(false); }} 
+            onClick={() => setActiveTab('signer')} 
           />
           <NavItem 
             icon={<FileSearch size={20} />} 
             label="Verify Authenticity" 
             active={activeTab === 'verifier'} 
-            onClick={() => { setActiveTab('verifier'); setIsMobileMenuOpen(false); }} 
+            onClick={() => setActiveTab('verifier')} 
           />
         </div>
 
@@ -236,7 +228,30 @@ const App = () => {
       </AnimatePresence>
 
 
-
+      {/* Mobile Bottom Navigation */}
+      <nav className="mobile-bottom-nav glass print-only-hide">
+        <div 
+          className={`bottom-nav-item ${activeTab === 'keygen' ? 'active' : ''}`}
+          onClick={() => setActiveTab('keygen')}
+        >
+          <Key size={22} />
+          <span>Keygen</span>
+        </div>
+        <div 
+          className={`bottom-nav-item ${activeTab === 'signer' ? 'active' : ''}`}
+          onClick={() => setActiveTab('signer')}
+        >
+          <FileSignature size={22} />
+          <span>Sign</span>
+        </div>
+        <div 
+          className={`bottom-nav-item ${activeTab === 'verifier' ? 'active' : ''}`}
+          onClick={() => setActiveTab('verifier')}
+        >
+          <ShieldCheck size={22} />
+          <span>Verify</span>
+        </div>
+      </nav>
     </>
   );
 };
